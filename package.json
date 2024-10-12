@@ -1,6 +1,6 @@
 {
   "name": "alertajs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A minimalist toast notification system for React.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
