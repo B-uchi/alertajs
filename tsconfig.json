@@ -1,25 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "ES2022", // You can choose ES2020 if you prefer the app settings.
-    "lib": ["ES2020", "DOM", "DOM.Iterable", "ES2023"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx", // Retain this only if you're using React.
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "include": ["src", "vite.config.ts"], // Include both application code and configuration.
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"], // Exclude unnecessary files.
-  "references": []
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
