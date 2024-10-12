@@ -1,14 +1,32 @@
 {
-  "name": "alerta",
-  "private": true,
+  "name": "alertajs",
   "version": "1.0.0",
-  "type": "module",
+  "description": "A minimalist toast notification system for React.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "private": false,
+  "type": "module",
   "scripts": {
-    "build": "tsc"
+    "dev": "vite",
+    "build": "tsc",
+    "lint": "eslint .",
+    "prepare": "npm run build"
   },
+  "keywords": [
+    "toast",
+    "notification",
+    "react",
+    "ui",
+    "alert"
+  ],
+  "author": "Ibuchukwu Umeano",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B-uchi/alertajs.git"
+  },
+  "homepage": "https://github.com/B-uchi/alertajs#readme",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
