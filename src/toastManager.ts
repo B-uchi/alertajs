@@ -1,7 +1,7 @@
 import { ToastOptions } from "./types/toastTypes";
 
 // Create a new type that omits the position property from ToastOptions
-type UserToastOptions = Omit<ToastOptions, 'position'>;
+type UserToastOptions = Omit<ToastOptions, 'position' | "showTimer">;
 
 const toastManager = (() => {
   let addToast: (options: ToastOptions) => void;
