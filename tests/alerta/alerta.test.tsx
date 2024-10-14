@@ -40,14 +40,16 @@ describe("ToastBox Component", () => {
 
   it("renders a warning toast when alerta.warning() is called", () => {
     render(<ToastBox position="top-right" />);
+
     act(() => {
       alerta.warning("Warning message");
     });
+    
     expect(screen.getByText("Warning message")).toBeInTheDocument();
   });
 
   it("automatically removes a toast after a set duration", async () => {
-    jest.useFakeTimers(); // Use fake timers to simulate time passing
+    jest.useFakeTimers(); 
   
     // Render the ToastBox component where toasts will appear
     render(<ToastBox position="top-right" />);
@@ -70,7 +72,6 @@ describe("ToastBox Component", () => {
       expect(screen.queryByText("Auto-remove message")).not.toBeInTheDocument();
     });
   
-    // Clean up fake timers
     jest.useRealTimers();
   });
 
@@ -97,8 +98,7 @@ describe("ToastBox Component", () => {
     // Ensure the toast is visible
     expect(screen.getByText("Timer toast")).toBeInTheDocument();
 
-    // Check if the timer is being shown (this could be a progress bar or countdown depending on implementation)
-    const timerElement = screen.getByTestId("toast-timer"); // Assuming you add a data-testid to the timer
+    const timerElement = screen.getByTestId("toast-timer");
     expect(timerElement).toBeInTheDocument();
   });
 });
