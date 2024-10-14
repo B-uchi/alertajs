@@ -1,7 +1,8 @@
 import ToastBox from "./components/ToastBox";
-import toastManager from "./toastManager";
-import "../style/style.css"
+import toastManager, { AlertaType } from "./toastManager";
+import "../style/style.css";
 
-const alerta = toastManager.alerta
+const alerta: AlertaType = toastManager.alerta;
 
 export { ToastBox, alerta };
+export default toastManager;

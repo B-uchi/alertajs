@@ -43,7 +43,7 @@ const ToastBox: React.FC<ToastBoxProps> = ({ position, showTimer }) => {
   };
 
   useEffect(() => {
-    const total = Object.values(toastRefs.current).reduce((acc, toastRef) => {
+    const total = Object.values(toastRefs.current).reduce((acc: number, toastRef: HTMLDivElement | null) => {
       if (toastRef) {
         return acc + toastRef.scrollHeight;
       }
