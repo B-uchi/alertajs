@@ -75,7 +75,9 @@ const Toast: React.FC<ToastOptions> = ({
       {/* Render progress bar if showProgressBar is true */}
 
       <div className="timer">
-        {showTimer && <TimerBar duration={duration} />}
+        <div data-testid={"toast-timer"}>
+          {showTimer && <TimerBar duration={duration} />}
+        </div>
         {/* Show expand button only if toast overflows */}
         {expandToast && !isExpanded && (
           <button

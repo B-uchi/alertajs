@@ -16,10 +16,14 @@ const useToast = () => {
     setToasts((prev) => prev.filter((toast) => toast.id !== id));
   };
 
+  const clearToasts = () => {
+    setToasts([]);
+  }
+
   useEffect(() => {
-    toastManager.register(addToast, removeToast);
+    toastManager.register(addToast, removeToast, clearToasts);
   }, []);
 
-  return { toasts, removeToast };
+  return { toasts, removeToast, addToast };
 };
 export default useToast;
