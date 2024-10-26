@@ -9,7 +9,6 @@ tests/
 
 src/
 public/
-style/
 tests/
 package-lock.json
 tsconfig.json
