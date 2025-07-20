@@ -78,7 +78,6 @@ const toastManager = (() => {
         title,
         duration,
         onClose,
-        position: "top-right",
       });
     },
 
@@ -98,7 +97,6 @@ const toastManager = (() => {
         title,
         duration,
         onClose,
-        position: "top-right",
       });
     },
 
@@ -118,7 +116,6 @@ const toastManager = (() => {
         title,
         duration,
         onClose,
-        position: "top-right",
       });
     },
 
@@ -138,7 +135,6 @@ const toastManager = (() => {
         title,
         duration,
         onClose,
-        position: "top-right",
       });
     },
   };

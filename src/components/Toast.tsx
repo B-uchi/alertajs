@@ -9,14 +9,13 @@ const Toast: React.FC<ToastOptions> = ({
   duration = 5000,
   onClose,
   position,
-  showTimer,
+  showTimer = false,
 }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [expandToast, setExpandToast] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const descriptionRef = useRef<HTMLParagraphElement | null>(null);
   const toastContainerRef = useRef<HTMLDivElement | null>(null);
-  showTimer = showTimer || false;
 
   useEffect(() => {
     const timer = setTimeout(() => {

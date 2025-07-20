@@ -11,9 +11,9 @@ const ToastBox: React.FC<ToastBoxProps> = ({ position, showTimer }) => {
   const { toasts, removeToast } = useToast();
   const [isHover, setIsHover] = useState(false);
   const [totalHeight, setTotalHeight] = useState(0);
-  const toastRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
+  const toastRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
-  const setToastRefs = (id: number) => (element: HTMLDivElement | null) => {
+  const setToastRefs = (id: string) => (element: HTMLDivElement | null) => {
     toastRefs.current[id] = element;
   };
 
@@ -27,16 +27,22 @@ const ToastBox: React.FC<ToastBoxProps> = ({ position, showTimer }) => {
 
   const containerHeight = () => {
     if (!isHover) {
-      if (toasts.length == 1) {
-        if (toastRefs.current[0]) return `${toastRefs.current[0].offsetHeight}`;
+      if (toasts.length === 1) {
+        const firstToastId = toasts[0]?.id;
+        if (firstToastId && toastRefs.current[firstToastId]) {
+          return `${toastRefs.current[firstToastId]!.offsetHeight}`;
+        }
       } else if (toasts.length > 1) {
         return `${totalHeight}px`;
       } else {
         return "0";
       }
     } else {
-      if (toasts.length == 1) {
-        if (toastRefs.current[0]) return `${toastRefs.current[0].offsetHeight}`;
+      if (toasts.length === 1) {
+        const firstToastId = toasts[0]?.id;
+        if (firstToastId && toastRefs.current[firstToastId]) {
+          return `${toastRefs.current[firstToastId]!.offsetHeight}`;
+        }
       }
       return `auto`;
     }
@@ -50,7 +56,7 @@ const ToastBox: React.FC<ToastBoxProps> = ({ position, showTimer }) => {
       return acc;
     }, 0);
     setTotalHeight(total);
-    if (toasts.length == 0) {
+    if (toasts.length === 0) {
       setIsHover(false);
     }
   }, [toasts, toastRefs]);
@@ -70,7 +76,7 @@ const ToastBox: React.FC<ToastBoxProps> = ({ position, showTimer }) => {
         <div
           key={toastItem.id}
           className="toastWrapper"
-          ref={setToastRefs(index)}
+          ref={setToastRefs(toastItem.id!)}
           style={{
             zIndex: index,
             transform: transform(index),
